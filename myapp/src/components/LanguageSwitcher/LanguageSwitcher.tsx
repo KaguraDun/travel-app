@@ -1,16 +1,16 @@
 import './LanguageSwitcher.scss';
 
-const LanguageSwitcher = () => {
+const LanguageSwitcher: React.FC = () => {
   return (
     <ul className="languageSwitcher">
       <li className="languageSwitcher__item">
-        <button>RU</button>
+        <button type="button">RU</button>
       </li>
       <li className="languageSwitcher__item">
-        <button>EN</button>
+        <button type="button">EN</button>
       </li>
       <li className="languageSwitcher__item">
-        <button>JP</button>
+        <button type="button">JP</button>
       </li>
     </ul>
   );

@@ -1,6 +1,10 @@
 import './CountryCard.scss';
 
-const CountryCard = ({ country }) => {
+type CountryCardProps = {
+  country: string;
+};
+
+const CountryCard = ({ country }: CountryCardProps) => {
   return (
     <div className="countryCard">
       <h2>{country}</h2>

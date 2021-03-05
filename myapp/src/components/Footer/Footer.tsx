@@ -1,6 +1,6 @@
 import './Footer.scss';
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <div className="footer">
       <ul className="authors">
@@ -15,10 +15,10 @@ const Footer = () => {
         </li>
       </ul>
 
-        <span className="year">2021</span>
+      <span className="year">2021</span>
 
       <div className="logo">
-        <img src="../../rs_school_js.svg" alt="" />
+        <img alt="" src="../../rs_school_js.svg" />
       </div>
     </div>
   );

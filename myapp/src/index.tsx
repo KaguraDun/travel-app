@@ -1,13 +1,23 @@
+import './index.scss';
+
 import { StrictMode } from 'react';
 import { render } from 'react-dom';
 
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
 import Countries from './components/Countries/Countries';
-import './index.scss';
+import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header';
 import reportWebVitals from './reportWebVitals';
 
-const COUNTRIES = ['Russia', 'Belarus', 'Ukraine', 'Germany', 'Sweden', 'Finland', 'Denmark', 'Netherlands'];
+const COUNTRIES = [
+  'Russia',
+  'Belarus',
+  'Ukraine',
+  'Germany',
+  'Sweden',
+  'Finland',
+  'Denmark',
+  'Netherlands',
+];
 
 render(
   <StrictMode>
