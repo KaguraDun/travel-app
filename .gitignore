@@ -5,4 +5,4 @@
 /.idea
 debug.log
 *.idea
-/package-lock.json
+myapp/package-lock.json
