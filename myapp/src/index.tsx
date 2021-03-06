@@ -3,27 +3,12 @@ import './index.scss';
 import { StrictMode } from 'react';
 import { render } from 'react-dom';
 
-import Countries from './components/Countries/Countries';
-import Footer from './components/Footer/Footer';
-import Header from './components/Header/Header';
+import TravelApp from './components/TravelApp/TravelApp';
 import reportWebVitals from './reportWebVitals';
-
-const COUNTRIES = [
-  'Russia',
-  'Belarus',
-  'Ukraine',
-  'Germany',
-  'Sweden',
-  'Finland',
-  'Denmark',
-  'Netherlands',
-];
 
 render(
   <StrictMode>
-    <Header />
-    <Countries countries={COUNTRIES} />
-    <Footer />
+    <TravelApp />
   </StrictMode>,
   document.getElementById('root')
 );
