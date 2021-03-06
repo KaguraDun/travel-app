@@ -1,8 +1,9 @@
 import { Component } from 'react';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 
-import Countries from '../Countries/Countries';
+import CountryPage from '../CountryPage/CountryPage';
 import Footer from '../Footer/Footer';
-import Header from '../Header/Header';
+import MainPage from '../MainPage/MainPage';
 
 const COUNTRIES = [
   'Russia',
@@ -18,11 +19,17 @@ const COUNTRIES = [
 class TravelApp extends Component {
   render() {
     return (
-      <div>
-        <Header />
-        <Countries countries={COUNTRIES} />
-        <Footer />
-      </div>
+      <Router>
+        <div>
+          <Route
+            component={() => <MainPage countries={COUNTRIES} />}
+            exact
+            path="/"
+          />
+          <Route component={CountryPage} exact path="/:country" />
+          <Footer />
+        </div>
+      </Router>
     );
   }
 }
