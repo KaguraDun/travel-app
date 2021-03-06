@@ -11,7 +11,7 @@ type HeaderProps = {
 
 const Header = ({ isMainPage }: HeaderProps) => {
   const search = isMainPage ? <Search /> : null;
-  
+
   return (
     <div className="header">
       <Link to="/">
