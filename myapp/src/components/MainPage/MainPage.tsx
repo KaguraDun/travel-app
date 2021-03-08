@@ -19,7 +19,13 @@ const MainPage = ({ countries, countriesList, randomCountry }: MainPageProps) =>
   return (
     <div>
       <Header isMainPage searchHandler={searchHandler} />
-      <SearchResults searchResult={countriesList.filter((country: Country) => country.name.includes(searchValue))}/>
+      {searchValue
+        ? <SearchResults
+            searchResult={countriesList.filter((country: Country) =>
+              country.name.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())
+              || country.capital.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()))}/>
+        : null
+      }
       <RandomCountry randomCountry={randomCountry}/>
       <Countries countries={countries} />
     </div>
