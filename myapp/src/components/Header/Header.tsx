@@ -7,6 +7,7 @@ import Search from '../Search/Search';
 
 type HeaderProps = {
   isMainPage: boolean;
+  searchHandler: Function;
 };
 
 const Header = ({ isMainPage }: HeaderProps) => {

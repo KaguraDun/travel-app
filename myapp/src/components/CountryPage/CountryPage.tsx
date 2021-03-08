@@ -12,7 +12,7 @@ import './CountryPage.scss';
 const CountryPage = () => {
   return (
     <div className="country-page">
-      <Header isMainPage={false} />
+      {/* <Header isMainPage={false} /> */}
       <CountryInfo />
       <Attractions />
       <Video />

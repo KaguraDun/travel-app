@@ -11,8 +11,8 @@ const Countries = ({ countries }: CountriesProps) => {
   const countryArr = countries.map((country) => {
     const url = country.toLowerCase();
     return (
-      <Link to={`/${url}`}>
-        <CountryCard country={country} key={country} />
+      <Link to={`/${url}`} key={country}>
+        <CountryCard country={country} />
       </Link>
     );
   });
