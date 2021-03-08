@@ -1,0 +1,44 @@
+{
+  "ru": [
+    {
+      "name": "Россия",
+      "capital": "Москва",
+      "videoUrl": "https://www.youtube.com/watch?v=YrNxPr4PKQo"
+    },
+    {
+      "name": "Белоруссия",
+      "capital": "Минск",
+      "videoUrl": ""
+    },
+    {
+      "name": "Украина",
+      "capital": "Киев",
+      "videoUrl": ""
+    },
+    {
+      "name": "Германия",
+      "capital": "Берлин",
+      "videoUrl": ""
+    },
+    {
+      "name": "Швеция",
+      "capital": "Стокгольм",
+      "videoUrl": ""
+    },
+    {
+      "name": "Финляндия",
+      "capital": "Хельсинки",
+      "videoUrl": ""
+    },
+    {
+      "name": "Дания",
+      "capital": "Копенгаген",
+      "videoUrl": ""
+    },
+    {
+      "name": "Нидерланды",
+      "capital": "Амстердам",
+      "videoUrl": ""
+    }
+  ]
+}

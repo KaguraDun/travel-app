@@ -1,8 +1,13 @@
 import Countries from '../Countries/Countries';
 import Header from '../Header/Header';
 
+type CountriesData = {
+  name: string;
+  capital: string;
+};
+
 type MainPageProps = {
-  countries: string[];
+  countries: CountriesData[];
 };
 
 const MainPage = ({ countries }: MainPageProps) => {

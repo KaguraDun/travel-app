@@ -9,11 +9,11 @@ import Weather from '../Weather/Weather';
 
 import './CountryPage.scss';
 
-const CountryPage = () => {
+const CountryPage = ({ location }) => {
   return (
     <div className="country-page">
       <Header isMainPage={false} />
-      <CountryInfo />
+      <CountryInfo location={location} />
       <Attractions />
       <Video />
       <Map />

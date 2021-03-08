@@ -1,20 +1,10 @@
 import { Component } from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 
+import CountriesData from '../../CountriesData/CountriesData.json';
 import CountryPage from '../CountryPage/CountryPage';
 import Footer from '../Footer/Footer';
 import MainPage from '../MainPage/MainPage';
-
-const COUNTRIES = [
-  'Russia',
-  'Belarus',
-  'Ukraine',
-  'Germany',
-  'Sweden',
-  'Finland',
-  'Denmark',
-  'Netherlands',
-];
 
 class TravelApp extends Component {
   render() {
@@ -22,7 +12,7 @@ class TravelApp extends Component {
       <Router>
         <div>
           <Route
-            component={() => <MainPage countries={COUNTRIES} />}
+            component={() => <MainPage countries={CountriesData.ru} />}
             exact
             path="/"
           />

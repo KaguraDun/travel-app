@@ -3,16 +3,25 @@ import { Link } from 'react-router-dom';
 
 import CountryCard from '../CountryCard/CountryCard';
 
+type CountriesData = {
+  name: string;
+  capital: string;
+};
+
 type CountriesProps = {
-  countries: string[];
+  countries: CountriesData[];
 };
 
 const Countries = ({ countries }: CountriesProps) => {
   const countryArr = countries.map((country) => {
-    const url = country.toLowerCase();
+    const url = country.name;
     return (
       <Link to={`/${url}`}>
-        <CountryCard country={country} key={country} />
+        <CountryCard
+          capital={country.capital}
+          country={country.name}
+          key={country.name}
+        />
       </Link>
     );
   });
