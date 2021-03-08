@@ -1,4 +1,4 @@
-import { Country } from "../../models/TravelApp.models";
+import { Country } from "../../models/CountryList.model";
 import { Link } from 'react-router-dom';
 
 type SearchResultsProps = {
@@ -9,7 +9,7 @@ export const SearchResults = ({ searchResult }: SearchResultsProps) => {
   return (
     <ul>
       {searchResult.map((item: Country) =>
-        <li>
+        <li key={item.name}>
           <Link to={`/${item.name.toLocaleLowerCase()}`}>
             {item.name}
           </Link>

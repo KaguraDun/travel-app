@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import { CountryService } from '../../services/http.service';
-import { CountryList, Country } from '../../models/TravelApp.models';
+import { CountryList, Country } from '../../models/CountryList.model';
 
 import CountryPage from '../CountryPage/CountryPage';
 import Footer from '../Footer/Footer';

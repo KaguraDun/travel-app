@@ -1,10 +1,16 @@
-const CountryInfo = () => {
+import { CountryDetail } from '../../models/CountryInfo.model'
+
+type CountryInfoProps = {
+  countryDetail: CountryDetail;
+};
+
+const CountryInfo = ({ countryDetail }: CountryInfoProps) => {
   return (
     <div className="country">
       <div className="country__photo">Photo</div>
-      <div className="country__name">COUNTRY NAME</div>
+      <div className="country__name">{countryDetail.title}</div>
       <div className="country__capital">COUNTRY CAPITAL</div>
-      <div className="country__description">COUNTRY DESCRIPTION</div>
+      <div className="country__description">{countryDetail.extract}</div>
     </div>
   );
 };

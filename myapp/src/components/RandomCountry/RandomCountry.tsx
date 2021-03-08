@@ -1,4 +1,4 @@
-import { Country } from '../../models/TravelApp.models';
+import { Country } from '../../models/CountryList.model';
 
 type RandomCountryProps = {
   randomCountry: Country;

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Countries from '../Countries/Countries';
 import Header from '../Header/Header';
-import { Country } from '../../models/TravelApp.models';
+import { Country } from '../../models/CountryList.model';
 import { RandomCountry } from '../RandomCountry/RandomCountry';
 import { SearchResults } from '../SearchResult/SearchResults';
 

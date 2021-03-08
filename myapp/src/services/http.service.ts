@@ -1,5 +1,3 @@
-import { Country } from '../models/TravelApp.models';
-
 export const CountryService = {
 
   fetchAllCountries: async () => {
@@ -7,15 +5,8 @@ export const CountryService = {
     return await fetch(apiCountriesUrl);
   },
 
-  getRandomCountry: (countryList: Country[]): Country => {
-    const randomIndex = Math.round((countryList.length - 1) * Math.random());
-    return countryList[randomIndex];
-  }
-
-  // getCountryByName: (countryList: Country[]): Country => {
-
-  //   return ;
-  // }
-
-
+  fetchCountryInfoByName: async (country: string = 'belarus', lang: string = 'en') => {
+    const apiCountryInfoUrl: string = `https://${lang}.wikipedia.org/w/api.php?action=query&origin=*&prop=extracts&format=json&exintro=&titles=${country}`;
+    return await fetch(apiCountryInfoUrl);
+  },
 };
