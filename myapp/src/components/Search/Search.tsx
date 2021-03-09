@@ -1,7 +1,11 @@
 import './Search.scss';
 
-const Search: React.FC = () => {
-  return <input className="search" placeholder="Enter Country Name" />;
+type SearchProps = {
+  searchHandler: Function;
+}
+
+const Search: React.FC<SearchProps> = ({ searchHandler }: SearchProps) => {
+  return <input className="search" placeholder="Enter Country Name" onChange={(e) => searchHandler(e.target.value)}/>;
 };
 
 export default Search;
