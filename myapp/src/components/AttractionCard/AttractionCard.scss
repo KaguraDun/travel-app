@@ -1,0 +1,13 @@
+.attraction {
+  height: 400px;
+  width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.attraction__image {
+  max-width: 400px;
+  max-height: 400px;
+}
