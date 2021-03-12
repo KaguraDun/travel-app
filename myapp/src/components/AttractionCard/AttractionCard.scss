@@ -1,13 +1,22 @@
 .attraction {
-  height: 400px;
-  width: 900px;
+  padding: 10px 0 20px 0;
+  width: 100%;
+  height: 300px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
-.attraction__image {
-  max-width: 400px;
-  max-height: 400px;
+  &__info {
+    margin-right: 10px;
+    width:45%;
+    height: inherit;
+    overflow-y: auto;
+  }
+
+  &__image {
+    display: block;
+    max-width: 45%;
+    height: auto;
+  }
 }
