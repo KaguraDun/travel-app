@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
 import { CountryDetail, CountryInfoResponse } from '../../models/CountryInfo.model';
 
 import { Country } from '../../models/CountryList.model';
-import { WeatherInfo } from '../../models/Weather.model';
 import { CountryService } from '../../services/http.service';
 import Attractions from '../Attractions/Attractions';
 import CapitalTime from '../CapitalTime/CapitalTime';
@@ -23,7 +23,6 @@ type MainPageProps = {
 const CountryPage = ({ countriesList }: MainPageProps) => {
   const [countryDetail, setCountryDetail] = useState({} as CountryDetail);
   const [countryData, setCountryData] = useState(null);
-  const [ weather, setWeather ] = useState({} as WeatherInfo);
 
   const location = useLocation();
   const countryName = location.pathname.split('/')[1];
@@ -38,12 +37,9 @@ const CountryPage = ({ countriesList }: MainPageProps) => {
 
     CountryService.fetchCountry(countryName)
       .then((response) => response.json())
-      .then((country) => setCountryData(country[0]));
-
-      CountryService.fetchWeather(country.capital)
-        .then(response => response.json())
-        .then((weatherInfo: WeatherInfo) => setWeather(weatherInfo));
-  }, []);
+      .then((country) => setCountryData(country[0])
+    );
+  },[]);
 
   return (
     <div className="country-page">
@@ -52,9 +48,12 @@ const CountryPage = ({ countriesList }: MainPageProps) => {
       {countryData ? <Attractions countryData={countryData} /> : null}
       <Video />
       <Map />
-      <Weather weather={weather}/>
+      {country && <Weather capital={country.capital}/>}
       <CurrencyConverter />
       <CapitalTime />
+      <Link to={`/`}>
+        <button>Back</button>
+      </Link>
     </div>
   );
 };

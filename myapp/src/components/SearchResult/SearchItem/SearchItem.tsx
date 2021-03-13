@@ -1,4 +1,4 @@
-import { Country } from "../../models/CountryList.model";
+import { Country } from "../../../models/CountryList.model";
 
 type SearchItemProps = {
   item: Country;
@@ -12,8 +12,14 @@ export const SearchItem = ({ item }: SearchItemProps) => {
       <div>Name: {name}</div>
       <div>Native name: {nativeName}</div>
       <div>Capital: {capital}</div>
-      <div>Flag: <img src={flag}></img></div>
-      <div>{currencies.map(currency => <div>Currency: {currency.name}{currency.symbol}</div>)}</div>
+      <div>Flag: <img src={flag} width="100px"></img></div>
+      {currencies.map(currency =>
+        <div>
+          <div>Currency name: {currency.name}</div>
+          <div>Currency symbol: {currency.symbol}</div>
+        </div>
+      )}
+      
     </li>
   );
 };

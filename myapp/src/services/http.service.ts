@@ -12,7 +12,7 @@ export const CountryService = {
     return fetch(apiCountriesUrl);
   },
 
-  fetchCountryInfoByName: async (country = 'belarus', lang = 'en') => {
+  fetchCountryInfoByName: async (country: string, lang = 'en') => {
     const apiCountryInfoUrl = `https://${lang}.wikipedia.org/w/api.php?action=query&origin=*&prop=extracts&format=json&exintro=&titles=${country}`;
     return fetch(apiCountryInfoUrl);
   },

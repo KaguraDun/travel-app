@@ -46,11 +46,11 @@ const MainPage = ({ countries, countriesList, randomCountry }: MainPageProps) =>
           />
         : null
       }
-      <RandomCountry randomCountry={randomCountry}/>
       <WorldMapBlock
         countries={worldMapData}
         onClickAction={onCountryClickHandler}
       />
+      <RandomCountry randomCountry={randomCountry}/>
       <Countries countries={countries} />
     </div>
   );

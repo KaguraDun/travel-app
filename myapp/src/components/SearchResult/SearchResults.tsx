@@ -1,5 +1,5 @@
 import { Country } from "../../models/CountryList.model";
-import { SearchItem } from '../SearchItem/SearchItem'
+import { SearchItem } from './SearchItem/SearchItem'
 import { Link } from 'react-router-dom';
 
 type SearchResultsProps = {

@@ -13,7 +13,7 @@ export const WorldMapBlock = ({ countries, onClickAction }: WorldMapBlockProps) 
     <div style={{display: "flex", justifyContent: "center"}}>
       <WorldMap
         color="red"
-        title="My custom World Map"
+        title="Click on country to know more"
         value-suffix="people"
         size="xxl"
         data={countries}
