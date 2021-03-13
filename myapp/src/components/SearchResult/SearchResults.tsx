@@ -1,4 +1,5 @@
 import { Country } from "../../models/CountryList.model";
+import { SearchItem } from '../SearchItem/SearchItem'
 import { Link } from 'react-router-dom';
 
 type SearchResultsProps = {
@@ -11,7 +12,7 @@ export const SearchResults = ({ searchResult }: SearchResultsProps) => {
       {searchResult.map((item: Country) =>
         <li key={item.name}>
           <Link to={`/${item.name.toLocaleLowerCase()}`}>
-            {item.name}
+            <SearchItem item={item}/>
           </Link>
         </li>)}
     </ul>
