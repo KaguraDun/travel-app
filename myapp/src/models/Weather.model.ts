@@ -5,7 +5,7 @@ export interface Weather {
   main: string;
 }
 
-export interface WeatherResponse {
+export interface WeatherInfo {
   base: string;
   clouds: {
     all: number,
