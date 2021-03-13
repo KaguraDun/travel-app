@@ -33,11 +33,16 @@ const MainPage = ({ countries, countriesList, randomCountry }: MainPageProps) =>
   const onCountryClickHandler = (event: React.MouseEvent<SVGElement, Event>, countryName: string, isoCode: string, value: string, prefix?: string, suffix?: string) => {
     const clickedCountry = countriesList.find((country: Country) => country.alpha2Code.toLocaleLowerCase() === isoCode.toLocaleLowerCase());
     setCountryClicked(clickedCountry);
+    setSearchValue(clickedCountry.name);
   };
 
   return (
     <div>
-      <Header isMainPage searchHandler={searchHandler} />
+      <Header
+        isMainPage
+        searchHandler={searchHandler}
+        searchValue={searchValue}
+      />
       {searchValue
         ? <SearchResults
             searchResult={searchResultCountries}
