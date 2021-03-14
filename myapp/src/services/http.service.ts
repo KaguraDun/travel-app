@@ -40,4 +40,11 @@ export const CountryService = {
     const url = `https://api.opentripmap.com/0.1/${lang}/places/xid/${xid}?apikey=${openTripMapApiKey}`;
     return fetch(url);
   },
+
+  fetchAttractionVideo: async (country: string) => {
+    const apiKey = 'AIzaSyDDzzsr-_xLfeVznLXS7y0aX6H0_SAt1IQ';
+    const url = `https://www.googleapis.com/youtube/v3/search?`;
+    const properties = `key=${apiKey}&type=video&part=snippet&maxResults=1&q=${country} attractions`;
+    return fetch(url + properties);
+  },
 };

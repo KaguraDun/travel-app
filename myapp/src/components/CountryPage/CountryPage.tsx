@@ -43,7 +43,7 @@ const CountryPage = ({ countriesList }: MainPageProps) => {
       {/* <Header isMainPage={false} /> */}
       {countryDetail ? <CountryInfo countryDetail={countryDetail} /> : null}
       {countryData ? <Attractions countryData={countryData} /> : null}
-      <Video />
+      <Video countryName={countryName} />
       <Map />
       <Weather />
       <CurrencyConverter />
