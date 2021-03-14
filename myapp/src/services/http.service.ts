@@ -41,6 +41,13 @@ export const CountryService = {
     return fetch(url);
   },
 
+  fetchAttractionVideo: async (country: string) => {
+    const apiKey = 'AIzaSyDDzzsr-_xLfeVznLXS7y0aX6H0_SAt1IQ';
+    const url = `https://www.googleapis.com/youtube/v3/search?`;
+    const properties = `key=${apiKey}&type=video&part=snippet&maxResults=1&q=${country} attractions`;
+    return fetch(url + properties);
+  },
+  
   fetchWeather: async (cityName: string) => {
     const apiWeatherUrl = 'http://api.openweathermap.org/data/2.5/weather?q=';
     const apiKey = '492003bfd44fb7dbe75df7d92a5e55d1';
