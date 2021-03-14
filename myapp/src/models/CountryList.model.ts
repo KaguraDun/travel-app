@@ -62,3 +62,8 @@ export interface CountryList {
   countriesList: Country[];
   countryOfTheDay: Country;
 }
+
+export interface WordlMapData {
+  country: string;
+  value: number;
+}

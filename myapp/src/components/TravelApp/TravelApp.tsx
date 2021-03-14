@@ -62,7 +62,7 @@ class TravelApp extends Component<{}, CountryList> {
             exact
             path="/"
           />
-          <Route component={CountryPage} exact path="/:country" />
+          <Route render={() => <CountryPage countriesList={this.state.countriesList}/>} exact path="/:country" />
           <Footer />
         </div>
       </Router>
