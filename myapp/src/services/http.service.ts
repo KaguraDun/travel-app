@@ -13,6 +13,14 @@ export const CountryService = {
   },
 
   fetchCountryInfoByName: async (country: string, lang = 'en') => {
+    if (country === 'russian federation') {
+      return fetch(`https://${lang}.wikipedia.org/w/api.php?action=query&origin=*&prop=extracts&format=json&exintro=&titles=russia`);
+    }
+
+    if (country === 'united states of america') {
+      return fetch(`https://${lang}.wikipedia.org/w/api.php?action=query&origin=*&prop=extracts&format=json&exintro=&titles=United_States`);
+    }
+
     const apiCountryInfoUrl = `https://${lang}.wikipedia.org/w/api.php?action=query&origin=*&prop=extracts&format=json&exintro=&titles=${country}`;
     return fetch(apiCountryInfoUrl);
   },
