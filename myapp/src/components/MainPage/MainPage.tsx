@@ -1,22 +1,23 @@
 import { useState } from 'react';
 
 import { Country } from '../../models/CountryList.model';
-import Countries from '../Countries/Countries';
 import Header from '../Header/Header';
-import { RandomCountry } from '../RandomCountry/RandomCountry';
 import { SearchResults } from '../SearchResult/SearchResults';
 import { WorldMapBlock } from '../WorldMapBlock/WorldMapBlock';
 
 type MainPageProps = {
-  countries: string[];
   countriesList: Country[];
-  randomCountry: Country;
+  randomCountriesList: Country[];
 };
 
-const MainPage = ({ countriesList, randomCountry }: MainPageProps) => {
+const MainPage = ({ countriesList, randomCountriesList }: MainPageProps) => {
   const [searchValue, setSearchValue] = useState('');
 
   const searchHandler = (value: string) => setSearchValue(value);
+
+  const header = <Header isMainPage searchHandler={searchHandler} searchValue={searchValue} />;
+
+  if (!countriesList || !randomCountriesList) return <div>{header}</div>;
 
   const searchResultCountries = countriesList.filter(
     (country: Country) =>
@@ -47,10 +48,13 @@ const MainPage = ({ countriesList, randomCountry }: MainPageProps) => {
 
   return (
     <div>
-      <Header isMainPage searchHandler={searchHandler} searchValue={searchValue} />
-      {searchValue ? <SearchResults searchResult={searchResultCountries} /> : null}
+      {header}
+      {searchValue ? (
+        <SearchResults searchResult={searchResultCountries} />
+      ) : (
+        <SearchResults searchResult={randomCountriesList} />
+      )}
       <WorldMapBlock countries={worldMapData} onClickAction={onCountryClickHandler} />
-      <RandomCountry randomCountry={randomCountry} />
     </div>
   );
 };
