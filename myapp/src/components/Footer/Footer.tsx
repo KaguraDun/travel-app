@@ -1,24 +1,26 @@
+import { ListGroup } from 'react-bootstrap';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './Footer.scss';
 
 const Footer: React.FC = () => {
   return (
-    <div className="footer">
-      <ul className="authors">
-        <li className="authors__item">
-          <a href="https://github.com/PavelAsadchy">Pavel Asadchy</a>
-        </li>
-        <li className="authors__item">
-          <a href="https://github.com/KaguraDun">Vasily Kovnev</a>
-        </li>
-        <li className="authors__item">
-          <a href="https://github.com/Kampaku">Georgii Lopatin</a>
-        </li>
-      </ul>
+    <div className="bg-light container footer ">
+      <div className="row">
+        <ListGroup horizontal>
+          <ListGroup.Item>
+            <a href="https://github.com/PavelAsadchy">Pavel Asadchy</a>
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <a href="https://github.com/KaguraDun">Vasily Kovnev</a>
+          </ListGroup.Item>
+        </ListGroup>
+      </div>
 
-      <span className="year">2021</span>
+      <span className="row">2021</span>
 
-      <div className="logo">
-        <img alt="" src="../../rs_school_js.svg" />
+      <div className="row">
+        <img alt="" className=" logo" src="../../rs_school_js.svg" />
       </div>
     </div>
   );
