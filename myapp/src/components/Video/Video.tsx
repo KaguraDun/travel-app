@@ -18,7 +18,7 @@ const Video = ({ countryName }: VideoProps) => {
 
   const youTubeUrl = 'https://www.youtube.com/watch?v=';
   const isVideoReceived = video && video.items;
-  
+
   return <ReactPlayer controls url={isVideoReceived ? youTubeUrl + video.items[0].id.videoId : '...Loading'} />;
 };
 

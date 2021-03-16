@@ -7,12 +7,12 @@ import Search from '../Search/Search';
 
 type HeaderProps = {
   isMainPage: boolean;
-  searchHandler: Function;
-  searchValue: string;
+  searchHandler?: Function;
+  searchValue?: string;
 };
 
 const Header = ({ isMainPage, searchHandler, searchValue }: HeaderProps) => {
-  const search = isMainPage ? <Search searchHandler={searchHandler} searchValue={searchValue}/> : null;
+  const search = isMainPage ? <Search searchHandler={searchHandler} searchValue={searchValue} /> : null;
 
   return (
     <div className="header">

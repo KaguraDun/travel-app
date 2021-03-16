@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
-import { CountryDetail, CountryInfoResponse } from '../../models/CountryInfo.model';
 
+import { CountryDetail, CountryInfoResponse } from '../../models/CountryInfo.model';
 import { Country } from '../../models/CountryList.model';
 import { CountryService } from '../../services/http.service';
 import Attractions from '../Attractions/Attractions';
@@ -31,27 +31,24 @@ const CountryPage = ({ countriesList }: MainPageProps) => {
   useEffect(() => {
     CountryService.fetchCountryInfoByName(countryName)
       .then((response) => response.json())
-      .then((countryInfo: CountryInfoResponse) =>
-        setCountryDetail(Object.values(countryInfo.query.pages)[0])
-      );
+      .then((countryInfo: CountryInfoResponse) => setCountryDetail(Object.values(countryInfo.query.pages)[0]));
 
     CountryService.fetchCountry(countryName)
       .then((response) => response.json())
-      .then((country) => setCountryData(country[0])
-    );
-  },[]);
+      .then((country) => setCountryData(country[0]));
+  }, []);
 
   return (
     <div className="country-page">
-      {/* <Header isMainPage={false} /> */}
+      <Header isMainPage={false} />
       <CountryInfo countryDetail={countryDetail} />
       {countryData ? <Attractions countryData={countryData} /> : null}
       <Video countryName={countryName} />
       {countryData ? <Map countryData={countryData} /> : null}
-      {country && <Weather capital={country.capital}/>}
+      {country && <Weather capital={country.capital} />}
       <CurrencyConverter />
       {countryData ? <CapitalTime countryData={countryData} /> : null}
-      <Link to={`/`}>
+      <Link to="/">
         <button>Back</button>
       </Link>
     </div>
