@@ -1,5 +1,4 @@
 .country__heading {
-  text-shadow: 2px 1px 2px black;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,4 +7,12 @@
   background-position: 'center';
   background-size: 'cover';
   background-repeat: 'no-repeat';
+
+  &-info {
+    padding: 20px;
+    text-align: center;
+    backdrop-filter: blur(2px);
+    text-shadow: 2px 1px 2px black;
+    background-color: hsla(51, 7%, 21%, 0.5);
+  }
 }

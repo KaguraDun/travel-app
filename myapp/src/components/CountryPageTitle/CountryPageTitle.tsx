@@ -23,11 +23,13 @@ const CountryPageTitle = ({ countryData }: CountryPageTitleProps) => {
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <h2 className="country__name">
-        {name}
-        <br />
-      </h2>
-      <h3 className="country__capital">{capital}</h3>
+      <div className="country__heading-info">
+        <h2 className="country__name">
+          {name}
+          <br />
+        </h2>
+        <h3 className="country__capital">{capital}</h3>
+      </div>
     </div>
   );
 };
