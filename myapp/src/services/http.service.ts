@@ -50,7 +50,7 @@ export const CountryService = {
   },
 
   fetchAttractionVideo: async (country: string) => {
-    const apiKey = 'AIzaSyDDzzsr-_xLfeVznLXS7y0aX6H0_SAt1IQ';
+    const apiKey = 'AIzaSyDoSce_kXLM52dh1hmFXUheB8pzSxbEXGs';
     const url = `https://www.googleapis.com/youtube/v3/search?`;
     const properties = `key=${apiKey}&type=video&part=snippet&maxResults=1&q=${country} attractions`;
     return fetch(url + properties);

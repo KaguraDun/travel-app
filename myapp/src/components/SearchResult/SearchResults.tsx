@@ -1,6 +1,9 @@
-import { Country } from "../../models/CountryList.model";
-import { SearchItem } from './SearchItem/SearchItem'
 import { Link } from 'react-router-dom';
+
+import { Country } from '../../models/CountryList.model';
+import CountryCard from '../CountryCard/CountryCard';
+
+import './SearchResults.scss';
 
 type SearchResultsProps = {
   searchResult: Country[];
@@ -8,13 +11,14 @@ type SearchResultsProps = {
 
 export const SearchResults = ({ searchResult }: SearchResultsProps) => {
   return (
-    <ul>
-      {searchResult.map((item: Country) =>
-        <li key={item.name}>
+    <div className="search-container">
+      {searchResult.map((item: Country) => (
+        <div key={item.name}>
           <Link to={`/${item.name.toLocaleLowerCase()}`}>
-            <SearchItem item={item}/>
+            <CountryCard item={item} />
           </Link>
-        </li>)}
-    </ul>
+        </div>
+      ))}
+    </div>
   );
 };

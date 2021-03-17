@@ -1,14 +1,25 @@
+import { Card } from 'react-bootstrap';
+
+import { Country } from '../../models/CountryList.model';
+
 import './CountryCard.scss';
 
 type CountryCardProps = {
-  country: string;
+  item: Country;
 };
 
-const CountryCard = ({ country }: CountryCardProps) => {
+const CountryCard = ({ item }: CountryCardProps) => {
+  const { name, nativeName, capital, flag } = item;
+
   return (
-    <div className="countryCard">
-      <h2>{country}</h2>
-    </div>
+      <Card>
+        <Card.Img className="card__img" src={flag} variant="top" />
+        <Card.Body>
+          <Card.Title>{name}</Card.Title>
+          <Card.Subtitle className="mb-2 text-muted">{capital}</Card.Subtitle>
+          <Card.Text>Native name: {nativeName}</Card.Text>
+        </Card.Body>
+      </Card>
   );
 };
 

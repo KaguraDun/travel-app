@@ -1,25 +1,33 @@
 import { useEffect, useState } from 'react';
+
+import * as cityTimezones from 'city-timezones';
+
 import { Country } from '../../models/CountryList.model';
 
 type CapitalTimeProps = {
   countryData: Country;
 };
 
-
 const CapitalTime = ({ countryData }: CapitalTimeProps) => {
-  const [ time, setTime ] = useState(new Date().toLocaleString('en', {hour: 'numeric', hour12: false, minute: 'numeric', second: 'numeric'}))
+  const [time, setTime] = useState(null);
 
   useEffect(() => {
+    const cityLookup = cityTimezones.lookupViaCity(countryData.capital);
+
+    const dateProperties: Intl.DateTimeFormatOptions = {
+      timeZone: cityLookup[0].timezone,
+      hour: 'numeric',
+      hour12: false,
+      minute: 'numeric',
+      second: 'numeric',
+    };
+
     setInterval(() => {
-      tick();
+      setTime(new Date().toLocaleString('en', dateProperties));
     }, 1000);
-  }, [])
+  }, []);
 
-  const tick = () => {
-    setTime(new Date().toLocaleString('en', {hour: 'numeric', hour12: false, minute: 'numeric', second: 'numeric'}))
-  };
-
-  return <div>{time}</div>;
+  return <div>{`Capital Time: ${time || '...loading'}`}</div>;
 };
 
 export default CapitalTime;

@@ -1,73 +1,53 @@
-import { Component } from 'react';
+import { useEffect, useState } from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 
-import { Country, CountryList } from '../../models/CountryList.model';
+import { Country } from '../../models/CountryList.model';
 import { CountryService } from '../../services/http.service';
 import CountryPage from '../CountryPage/CountryPage';
 import Footer from '../Footer/Footer';
 import MainPage from '../MainPage/MainPage';
 
-const COUNTRIES = [
-  'Russia',
-  'Belarus',
-  'Ukraine',
-  'Germany',
-  'Sweden',
-  'Finland',
-  'Denmark',
-  'Netherlands',
-];
+// https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+function shuffleArray(array: Country[]) {
+  const newArr = array.slice();
 
-class TravelApp extends Component<{}, CountryList> {
-  constructor(props: {}) {
-    super(props);
-
-    this.state = {
-      countriesList: [],
-      countryOfTheDay: null,
-    };
-
-    this.getrandomCountry = this.getrandomCountry.bind(this);
+  for (let i = newArr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = newArr[i];
+    newArr[i] = newArr[j];
+    newArr[j] = temp;
   }
+  return newArr;
+}
 
-  componentDidMount() {
+const TravelApp = () => {
+  const [countriesList, setCountriesList] = useState(null);
+  const [randomCountriesList, setRandomCountriesList] = useState(null);
+  const numberOfRandomCountries = 8;
+
+  useEffect(() => {
     CountryService.fetchAllCountries()
       .then((response) => response.json())
-      .then((countriesList: Country[]) =>
-        this.setState({ countriesList }, this.getrandomCountry)
-      );
-  }
+      .then((countries: Country[]) => {
+        setCountriesList(countries);
+        const shuffledArray = shuffleArray(countries).slice(0, numberOfRandomCountries);
+        setRandomCountriesList(shuffledArray);
+      });
+  }, []);
 
-  getrandomCountry() {
-    const randomIndex = Math.round(
-      (this.state.countriesList.length - 1) * Math.random()
-    );
-    this.setState({
-      countryOfTheDay: this.state.countriesList[randomIndex],
-    });
-  }
-
-  render() {
-    return (
-      <Router>
-        <div>
-          <Route
-            component={() => (
-              <MainPage
-                countries={COUNTRIES}
-                countriesList={this.state.countriesList}
-                randomCountry={this.state.countryOfTheDay}
-              />
-            )}
-            exact
-            path="/"
-          />
-          <Route render={() => <CountryPage countriesList={this.state.countriesList}/>} exact path="/:country" />
-          <Footer />
-        </div>
-      </Router>
-    );
-  }
-}
+  return (
+    <Router>
+      <div>
+        <Route
+          component={() => <MainPage countriesList={countriesList || null} randomCountriesList={randomCountriesList || null} />}
+          exact
+          path="/"
+        />
+        <Route exact path="/:country" render={() => <CountryPage countriesList={countriesList || null} />} />
+        <Footer />
+      </div>
+    </Router>
+  );
+};
 
 export default TravelApp;

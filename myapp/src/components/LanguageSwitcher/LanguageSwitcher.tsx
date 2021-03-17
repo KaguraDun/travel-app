@@ -1,17 +1,12 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './LanguageSwitcher.scss';
 
 const LanguageSwitcher: React.FC = () => {
   return (
-    <select className="language-switcher">
-      <option className="language-switcher__lang" value="ru">
-        ru
-      </option>
-      <option className="language-switcher__lang" value="en">
-        en
-      </option>
-      <option className="language-switcher__lang" value="jp">
-        jp
-      </option>
+    <select className="selectpicker">
+      <option value="ru">ru</option>
+      <option value="en">en</option>
+      <option value="jp">jp</option>
     </select>
   );
 };
