@@ -33,7 +33,7 @@ const CountryPage = () => {
       .then((response) => response.json())
       .then((country) => setCountryData(country[0]));
   }, []);
-
+  console.log(countryData);
   return (
     <div className="country-page">
       <Header isMainPage={false} />
@@ -42,7 +42,7 @@ const CountryPage = () => {
           <div className="country-page__widget">
             {countryData ? <CapitalTime countryData={countryData} /> : null}
             {countryData && <Weather capital={countryData.capital} />}
-            <CurrencyConverter />
+            {countryData && <CurrencyConverter countryCurrencies={countryData.currencies} />}
           </div>
           <CountryPageTitle countryData={countryData} />
           {countryData ? <Map countryData={countryData} /> : null}
