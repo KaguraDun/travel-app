@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Container, Row } from 'react-bootstrap';
 import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 
@@ -7,6 +8,7 @@ import { CountryService } from '../../services/http.service';
 import Attractions from '../Attractions/Attractions';
 import CapitalTime from '../CapitalTime/CapitalTime';
 import CountryInfo from '../CountryInfo/CountyInfo';
+import CountryPageTitle from '../CountryPageTitle/CountryPageTitle';
 import CurrencyConverter from '../CurrencyConverter/CurrencyConverter';
 import Header from '../Header/Header';
 import Map from '../Map/Map';
@@ -35,16 +37,20 @@ const CountryPage = () => {
   return (
     <div className="country-page">
       <Header isMainPage={false} />
+      <Container>
+        <Row>
+          <div className="country-page__widget">
+            {countryData ? <CapitalTime countryData={countryData} /> : null}
+            {countryData && <Weather capital={countryData.capital} />}
+            <CurrencyConverter />
+          </div>
+          <CountryPageTitle countryData={countryData} />
+          {countryData ? <Map countryData={countryData} /> : null}
+        </Row>
+      </Container>
       <CountryInfo countryDetail={countryDetail} />
-      {countryData ? <Attractions countryData={countryData} /> : null}
       <Video countryName={countryName} />
-      {countryData ? <Map countryData={countryData} /> : null}
-      {countryData && <Weather capital={countryData.capital} />}
-      <CurrencyConverter />
-      {countryData ? <CapitalTime countryData={countryData} /> : null}
-      <Link to="/">
-        <button>Back</button>
-      </Link>
+      {countryData ? <Attractions countryData={countryData} /> : null}
     </div>
   );
 };

@@ -4,6 +4,8 @@ import * as cityTimezones from 'city-timezones';
 
 import { Country } from '../../models/CountryList.model';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 type CapitalTimeProps = {
   countryData: Country;
 };
@@ -27,7 +29,7 @@ const CapitalTime = ({ countryData }: CapitalTimeProps) => {
     }, 1000);
   }, []);
 
-  return <div>{`Capital Time: ${time || '...loading'}`}</div>;
+  return <div className="h3">{`Capital Time: ${time || '...loading'}`}</div>;
 };
 
 export default CapitalTime;
