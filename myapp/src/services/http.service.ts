@@ -57,7 +57,7 @@ export const CountryService = {
   },
   
   fetchWeather: async (cityName: string) => {
-    const apiWeatherUrl = 'http://api.openweathermap.org/data/2.5/weather?q=';
+    const apiWeatherUrl = 'https://api.openweathermap.org/data/2.5/weather?q=';
     const apiKey = '492003bfd44fb7dbe75df7d92a5e55d1';
     return fetch(`${apiWeatherUrl}${cityName}&appid=${apiKey}&units=metric`);
   },
