@@ -11,8 +11,9 @@ type WorldMapBlockProps = {
 
 export const WorldMapBlock = ({ countries, onClickAction }: WorldMapBlockProps) => {
   return (
-    <div className="world-map" style={{display: "flex", justifyContent: "center"}}>
+    <div className="world-map" style={{ display: 'flex', justifyContent: 'center' }}>
       <WorldMap
+        backgroundColor="-webkit-linear-gradient(to top, #cfdef3, #e0eafc)"
         color="red"
         data={countries}
         onClickFunction={onClickAction}
