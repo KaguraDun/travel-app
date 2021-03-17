@@ -16,8 +16,12 @@ const CapitalTime = ({ countryData }: CapitalTimeProps) => {
   useEffect(() => {
     const cityLookup = cityTimezones.lookupViaCity(countryData.capital);
 
+    const cityTimeZone = cityLookup[0] && cityLookup[0].timezone ? cityLookup[0].timezone : 'UTC';
     const dateProperties: Intl.DateTimeFormatOptions = {
-      timeZone: cityLookup[0].timezone,
+      timeZone: cityTimeZone,
+      day: 'numeric',
+      month: 'short',
+      weekday: 'short',
       hour: 'numeric',
       hour12: false,
       minute: 'numeric',
@@ -25,11 +29,16 @@ const CapitalTime = ({ countryData }: CapitalTimeProps) => {
     };
 
     setInterval(() => {
-      setTime(new Date().toLocaleString('en', dateProperties));
+      setTime(new Date().toLocaleString('en', dateProperties).replace(/:/g, '-'));
     }, 1000);
   }, []);
 
-  return <div className="h3">{`Capital Time: ${time || '...loading'}`}</div>;
+  return (
+    <div>
+      <div className="h3">Capital Time:</div>
+      <div className="h4">{`${time || '...loading'}`}</div>
+    </div>
+  );
 };
 
 export default CapitalTime;
