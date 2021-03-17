@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { CountryService } from '../../services/http.service';
 
-const CurrencyConverter = ({ countryCurrencies }: string[]) => {
+const CurrencyConverter = ({ countryCurrencies }: any) => {
   if (!countryCurrencies) return <div>...loading</div>;
 
   const [currency, setCurrency] = useState(null);
@@ -19,9 +19,10 @@ const CurrencyConverter = ({ countryCurrencies }: string[]) => {
 
   if (currency && currency.rates) {
     for (const [key, value] of Object.entries(currency.rates)) {
+      const val = value as number;
       const component = (
         <div key={key}>
-          {key}: {value.toFixed(2)}
+          {key}: {val.toFixed(2)}
         </div>
       );
 

@@ -6,7 +6,7 @@ import './WorldMapBlock.scss';
 
 type WorldMapBlockProps = {
   countries: WordlMapData[];
-  onClickAction: Function;
+  onClickAction: any;
 };
 
 export const WorldMapBlock = ({ countries, onClickAction }: WorldMapBlockProps) => {
