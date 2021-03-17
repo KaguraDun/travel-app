@@ -32,7 +32,6 @@ const Attractions = ({ countryData }: AttractionsProps) => {
   }, []);
 
   const sliderSettings = {
-    lazyLoad: true,
     arrows: true,
     dots: true,
     infinite: true,
@@ -53,7 +52,6 @@ const Attractions = ({ countryData }: AttractionsProps) => {
 
   return (
     <div className="attractions__slider">
-      {/* Slider get error because lazyLoad attribute is using (possibly bug?), but it fix 429 error */}
       <Slider {...sliderSettings}>{attractionsList}</Slider>
     </div>
   );
