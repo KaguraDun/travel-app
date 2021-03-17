@@ -1,20 +1,22 @@
-import { CountryDetail } from '../../models/CountryInfo.model'
+import { CountryDetail } from '../../models/CountryInfo.model';
+
+import './CountryInfo.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 type CountryInfoProps = {
   countryDetail: CountryDetail;
 };
 
 const CountryInfo = ({ countryDetail }: CountryInfoProps) => {
+  if (!countryDetail) return <div>...loading</div>;
+
   const createMarkup = () => {
-    return {__html: countryDetail.extract};
+    return { __html: countryDetail.extract };
   };
 
   return (
     <div className="country">
-      <div className="country__photo">Photo</div>
-      <div className="country__name">{countryDetail.title}</div>
-      <div className="country__capital">COUNTRY CAPITAL</div>
-      <div className="country__description" dangerouslySetInnerHTML={createMarkup()}></div>
+      <div className="country__description lead" dangerouslySetInnerHTML={createMarkup()} />
     </div>
   );
 };

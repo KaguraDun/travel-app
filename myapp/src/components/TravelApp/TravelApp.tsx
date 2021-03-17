@@ -43,7 +43,7 @@ const TravelApp = () => {
           exact
           path="/"
         />
-        <Route exact path="/:country" render={() => <CountryPage countriesList={countriesList || null} />} />
+        <Route exact path="/:country" render={() => <CountryPage />} />
         <Footer />
       </div>
     </Router>

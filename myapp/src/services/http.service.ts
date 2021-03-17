@@ -59,6 +59,11 @@ export const CountryService = {
   fetchWeather: async (cityName: string) => {
     const apiWeatherUrl = 'http://api.openweathermap.org/data/2.5/weather?q=';
     const apiKey = '492003bfd44fb7dbe75df7d92a5e55d1';
-    return await fetch(`${apiWeatherUrl}${cityName}&appid=${apiKey}&units=metric`);
+    return fetch(`${apiWeatherUrl}${cityName}&appid=${apiKey}&units=metric`);
+  },
+
+  fetchCurrency: async (countryCode: string) => {
+    const url = `https://api.exchangeratesapi.io/latest?base=USD&symbols=USD,EUR,${countryCode}`;
+    return fetch(url);
   },
 };

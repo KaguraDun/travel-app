@@ -17,15 +17,13 @@ const Header = ({ isMainPage, searchHandler, searchValue }: HeaderProps) => {
   const search = isMainPage ? <Search searchHandler={searchHandler} searchValue={searchValue} /> : null;
 
   return (
-    <div>
-      <Navbar bg="light" className="container header" expand="lg">
-        <Link className="row" to="/">
-          <h1 className="header__logo">Travel App</h1>
-        </Link>
-        {search}
-        <LanguageSwitcher />
-      </Navbar>
-    </div>
+    <Navbar bg="light" className="container header" expand="lg">
+      <Link className="row" to="/">
+        <h1 className="header__logo">Travel App</h1>
+      </Link>
+      {search}
+      <LanguageSwitcher />
+    </Navbar>
   );
 };
 

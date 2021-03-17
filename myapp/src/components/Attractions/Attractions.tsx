@@ -8,6 +8,7 @@ import AttractionCard from '../AttractionCard/AttractionCard';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './Attractions.scss';
+
 import { Country } from '../../models/CountryList.model';
 
 type AttractionsProps = {
@@ -29,7 +30,7 @@ const Attractions = ({ countryData }: AttractionsProps) => {
           .then((attractions) => setCapitalAttractions(attractions))
       );
   }, []);
-  // @ts-nocheck
+
   const sliderSettings = {
     arrows: true,
     dots: true,

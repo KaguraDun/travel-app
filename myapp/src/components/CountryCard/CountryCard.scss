@@ -1,7 +1,12 @@
 .card {
+  margin: 0 5px;
   width: 16rem;
   height: 100%;
   cursor: pointer;
+
+  &:hover{
+    border: 2px solid red;
+  }
 }
 
 .card__img {
