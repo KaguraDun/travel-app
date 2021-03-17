@@ -8,6 +8,7 @@ import AttractionCard from '../AttractionCard/AttractionCard';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './Attractions.scss';
+
 import { Country } from '../../models/CountryList.model';
 
 type AttractionsProps = {
@@ -29,8 +30,9 @@ const Attractions = ({ countryData }: AttractionsProps) => {
           .then((attractions) => setCapitalAttractions(attractions))
       );
   }, []);
-  // @ts-nocheck
+
   const sliderSettings = {
+    lazyLoad: true,
     arrows: true,
     dots: true,
     infinite: true,
@@ -51,6 +53,7 @@ const Attractions = ({ countryData }: AttractionsProps) => {
 
   return (
     <div className="attractions__slider">
+      {/* Slider get error because lazyLoad attribute is using (possibly bug?), but it fix 429 error */}
       <Slider {...sliderSettings}>{attractionsList}</Slider>
     </div>
   );
